@@ -9,14 +9,7 @@ import (
 
 func main() {
 	http.HandleFunc("/", indexHandler)
-	port := os.Getenv("PORT")
-	if port == "" {
-		port = "8080"
-		log.Printf("Defaulting to port %s", port)
-	}
-
-	log.Printf("Listening on port %s", port)
-	log.Printf("Open http://localhost:%s in the browser", port)
+	port := "8080"
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", port), nil))
 }
 
@@ -25,7 +18,9 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 		http.NotFound(w, r)
 		return
 	}
-	_, err := fmt.Fprint(w, "Hello, World!")
+	// read html file as string
+	bytes, _ := os.ReadFile("index.html")
+	_, err := fmt.Fprint(w, string(bytes))
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 	}
