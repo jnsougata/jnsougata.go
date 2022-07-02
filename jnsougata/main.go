@@ -9,8 +9,8 @@ import (
 
 func main() {
 	http.HandleFunc("/", indexHandler)
-	port := "8080"
-	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", port), nil))
+	fmt.Println("[Server started]")
+	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", "8080"), nil))
 }
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
