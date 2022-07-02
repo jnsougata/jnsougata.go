@@ -1,1 +1,1 @@
-web: jnsougata
+worker: jnsougata
