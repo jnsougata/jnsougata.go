@@ -1,0 +1,1 @@
+# jnsougata.go
