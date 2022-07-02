@@ -7,7 +7,6 @@ import (
 	"os"
 )
 
-// main is the entry point for the application.
 func main() {
 	http.HandleFunc("/", indexHandler)
 	port := os.Getenv("PORT")
